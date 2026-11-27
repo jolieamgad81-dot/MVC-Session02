@@ -6,10 +6,14 @@ namespace GYM_project.context
 {
     public class GymDbContext:DbContext
     {
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        public GymDbContext(DbContextOptions options):base(options) 
         {
-            optionsBuilder.UseSqlServer("Server=.;Database=gymdbg01;Trusted_Connection=true;TrustServerCertificate=true");
+
         }
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    optionsBuilder.UseSqlServer("Server=.;Database=gymdbg01;Trusted_Connection=true;TrustServerCertificate=true");
+        //}
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());

@@ -14,7 +14,7 @@ namespace GYM_project.configrations
 
             builder.ToTable(t =>
             {
-                t.HasCheckConstraint("sessioncapacityconstrain", "capacity belween 1 and 25");
+                t.HasCheckConstraint("sessioncapacityconstrain", "Capacity BETWEEN 1 AND 25");
                 t.HasCheckConstraint("sessionEndDateAfterStartDate", "EndDate>StartDate");
 
             });

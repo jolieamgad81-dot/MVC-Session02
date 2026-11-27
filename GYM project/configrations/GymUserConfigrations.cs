@@ -18,7 +18,7 @@ namespace GYM_project.configrations
 
             builder.ToTable(t =>
             {
-                t.HasCheckConstraint("GymUser_EmailChek", "Email Like '_%@_%._%");
+                t.HasCheckConstraint("GymUser_EmailChek", "Email LIKE '_%@_%._%'");
                 t.HasCheckConstraint("GymUser_PhoneChek", "Phone LIKE '01[0125][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]'");
             });
 

@@ -11,7 +11,7 @@ namespace GYM_project.configrations
             builder.Property(x => x.CreateAt).HasDefaultValueSql("getDate()");
             builder.ToTable(t =>
             {
-                t.HasCheckConstraint("planDurationChek", "durationBetween 1 and 365");
+                t.HasCheckConstraint("planDurationChek", "DurationInDays BETWEEN 1 AND 365");
             });
         }
     }

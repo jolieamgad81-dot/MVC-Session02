@@ -1,3 +1,8 @@
+using GYM_project.context;
+using GYM_project.Reposaterie.Classes;
+using GYM_project.Reposaterie.InterFaces;
+using Microsoft.EntityFrameworkCore;
+
 namespace GYM_project
 {
     public class Program
@@ -8,6 +13,14 @@ namespace GYM_project
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+            builder.Services.AddDbContext<GymDbContext>(options=>
+            {
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+            });
+
+            builder.Services.AddScoped<IPlanRepository, PlanRepository>();
+            builder.Services.AddScoped<IMembershipRepository, IMembershipRepository>();
 
             var app = builder.Build();
 
